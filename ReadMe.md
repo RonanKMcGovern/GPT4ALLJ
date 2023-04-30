@@ -26,7 +26,7 @@ sudo apt update
 
 sudo apt install -y python3-pip
 
-sudo apt install python3.8-venv
+sudo apt install python3.10-venv
 
 python3 -m venv env
 
@@ -34,7 +34,7 @@ source env/bin/activate
 
 pip3 install gpt4all-j
 
-python3 gptOnAWS.py / etc.
+python3 gptOnAWS.py
 
 
 
