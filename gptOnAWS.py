@@ -1,5 +1,5 @@
 from gpt4allj import Model
 
-model = Model('./models/ggml-gpt4all-j.bin', n_threads=8)
+model = Model('./models/ggml-gpt4all-j.bin')
 
-print(model.generate('What are the strengths and weaknesses of AWS versus Google Cloud?'))
+print(model.generate('What are the strengths and weaknesses of AWS versus Google Cloud?', n_threads=8))
