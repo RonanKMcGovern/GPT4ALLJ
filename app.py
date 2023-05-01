@@ -10,6 +10,7 @@ model = Model('./models/ggml-gpt4all-j.bin')
 @app.route('/complete', methods=['POST'])
 def complete():
     prompt = request.json.get('text', '')
+    print('Received prompt:', prompt)
     completion = model.generate(prompt, n_threads=8, n_predict=100)
     return jsonify({'completion': completion})
 

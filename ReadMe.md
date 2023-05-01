@@ -32,7 +32,12 @@ python3 gptOnAWS.py
 
 OR
 
-to run app.py  
+to run app.py on a server:  
+
+pip install gunicorn  
+
+gunicorn app:app
+
 
 
 
