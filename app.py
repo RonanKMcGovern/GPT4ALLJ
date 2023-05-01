@@ -11,8 +11,12 @@ model = Model('./models/ggml-gpt4all-j.bin')
 def complete():
     prompt = request.json.get('text', '')
     print('Received prompt:', prompt)
-    completion = model.generate(prompt, n_threads=8, n_predict=100)
+    try:
+        completion = model.generate(prompt, n_threads=8, n_predict=100)
+    except Exception as e:
+        return jsonify({'error': str(e)})
     return jsonify({'completion': completion})
+
 
 if __name__ == '__main__':
     app.run()
