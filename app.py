@@ -10,11 +10,10 @@ model = Model('./models/ggml-gpt4all-j.bin')
 @app.route('/complete', methods=['POST'])
 def complete():
     prompt = request.json.get('text', '')
+    completion_length = request.json.get('completionLength', 100)  # Set a default value if promptLength is not provided
     print('Received prompt:', prompt)
-    try:
-        completion = model.generate(prompt, n_threads=8, n_predict=100)
-    except Exception as e:
-        return jsonify({'error': str(e)})
+    print('Received prompt length:', completion_length)
+    completion = model.generate(prompt, n_threads=8, n_predict=completion_length)
     return jsonify({'completion': completion})
 
 

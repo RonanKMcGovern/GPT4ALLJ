@@ -36,8 +36,8 @@ to run app.py on a server:
 
 pip install gunicorn  
 
-gunicorn app:app
-
+<!-- to start the app on a public ip address, be sure to enable inbound rules -->
+gunicorn -b 0.0.0.0:8000 app:app
 
 
 
